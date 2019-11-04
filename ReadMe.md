@@ -1,7 +1,8 @@
 # 1 准备工作 #
-需要安装PMC工具（仅对于Visual Studio）或CLI工具
+需要安装PMC工具（仅对于Visual Studio）或CLI工具 
+这里使用CLI工具
 ---
-以CLI工具为例
+
 1.1 安装第一个包
 `dotnet tool install --global dotnet-ef`
 ---
