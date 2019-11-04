@@ -11,12 +11,12 @@
 1.3 安装第二个包
 `dotnet add package Microsoft.EntityFrameworkCore.Design`
 ---
-# 2 执行 命令从数据库生成实体#
-`dotnet ef dbcontext scaffold "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=efcore3pointOScriptsTest;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"  Microsoft.EntityFrameworkCore.SqlServer -o Models -c consoleAppDbcontext`
+# 2 执行 命令从数据库生成实体 #
+``` dotnet ef dbcontext scaffold "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=efcore3pointOScriptsTest;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"  Microsoft.EntityFrameworkCore.SqlServer -o Models -c consoleAppDbcontext ```
 
 -o表示输出到目录 -c指定生成的dbcontext的名称
 如果想要生成具体某个表，请使用-t tablename,指定多个表可以反复使用-t tableName来指定多个表
 ---
-# 3 接下来可以使用以下命令生成迁移#
+# 3 接下来可以使用以下命令生成迁移 #
 
 `dotnet ef migrations add Initial`
