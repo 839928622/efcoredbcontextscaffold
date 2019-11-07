@@ -23,7 +23,7 @@ namespace ConsoleApp.DonvvModels
             {
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer(System.Environment.GetEnvironmentVariable("DonvvDb"));
-                //原来 取md5 再取base64 反向-decodebase64 再破译md5
+                //原来将密码字符串 取GetBytes， 取md5 再取base64。 反向 -decodebase64 再破译md5  再转成字符串（string）
             }
         }
 

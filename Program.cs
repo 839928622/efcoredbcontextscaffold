@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using ConsoleApp.DonvvModels;
 using ConsoleApp.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Http;
 
 namespace ConsoleApp
 {
@@ -10,27 +13,21 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            using(var _context = new consoleAppDbcontext())
+             var res =    System.Text.Encoding.UTF8.GetBytes("111111");
+            Console.WriteLine("转换为byte数组："+res);
+            MD5 md5 = new MD5CryptoServiceProvider();
+          var hashres =      md5.ComputeHash(res);
+         string hash2string =  hashres.ToString();
+         Console.WriteLine("取md6之后再转换为base64:"+ Convert.ToBase64String(hashres));
+            
+
+          var   HttpClient = new  HttpClient();
+            using ( var DbContext = new DonvvDbcontext())
             {
-                var Students= SeedData.getStudent();
+             var user =    DbContext.SysUsers.FirstOrDefault(x => x.Id == 10002);
+             byte[] passwordbytes =  Convert.FromBase64String(user.PassWord);
 
-               
-                 var res=  _context.Students.ToList();
-                if(!res.Any())
-                {
-                var view =   _context.Students.AddRangeAsync(Students);
-                _context.SaveChanges();
-
-                }
- 
-               
-                foreach (var item in res)
-                {
-                    Console.WriteLine("年龄：" + item.Age + "姓名 ：" + item.StudentName);
-                }
             }
-
-            Console.ReadKey();
 
            
         }
