@@ -17,6 +17,6 @@
 -o表示输出到目录 -c指定生成的dbcontext的名称
 如果想要生成具体某个表，请使用-t tablename,指定多个表可以反复使用-t tableName来指定多个表
 ---
-# 3 接下来可以使用以下命令生成迁移 #
+# 3 接下来可以使用以下命令生成名为Initial的迁移 #
 
 `dotnet ef migrations add Initial`
